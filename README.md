@@ -11,5 +11,5 @@ any external dependencies. To run simply enter the following into
 the terminal of your choice
 
 ```
-python gen.py <path-to-output-dir>
+python sugar_quickstart.py <path-to-output-dir>
 ```
