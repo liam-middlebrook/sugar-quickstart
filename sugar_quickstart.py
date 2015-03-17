@@ -552,6 +552,34 @@ class Translator(object):
 sugargame_init_py = r"""__version__ = '1.1'
 """
 
+readme_md = r"""{project_display_name}
+======
+## Prerequisites
+
+>   ./setup.py genpot
+>   ./setup.py build
+
+## Running
+
+>   ./{project_name}.py
+
+## Deploying
+
+### On the XO
+
+>   ./setup.py install
+
+### On another computer
+
+If you want to distribute the game onto an XOPC
+
+>   ./setup.py dist_xo
+
+If you want to distribute the game onto a regular computer
+
+>   ./setup.py dist
+"""
+
 project_display_name = raw_input("Project Name: ")
 project_name = raw_input("Project Class Name: ")
 
@@ -615,3 +643,11 @@ with open(os.path.join(sugargame_dir, "event.py"), "w+") as text_file:
 
 with open(os.path.join(sugargame_dir, "__init__.py"), "w+") as text_file:
     text_file.write(sugargame_init_py)
+
+with open(os.path.join(output_dir, "README.md"), "w+") as text_file:
+    text_file.write(
+        readme_md.format(
+            project_name=project_name,
+            project_display_name=project_display_name
+        )
+    )
